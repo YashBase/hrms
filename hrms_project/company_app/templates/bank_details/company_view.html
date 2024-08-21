@@ -1,0 +1,23 @@
+<h2>All Users Bank Details</h2>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Bank Name</th>
+        <th>Account Number</th>
+        <th>IFSC Code</th>
+        <th>MICR Code</th>
+        <th>Account Holder Name</th>
+        <th>Branch Address</th>
+    </tr>
+    {% for bank in bank_details %}
+    <tr>
+        <td>{{ bank.user.name }}</td>
+        <td>{{ bank.bank_name }}</td>
+        <td>{{ bank.account_number }}</td>
+        <td>{{ bank.ifsc_code }}</td>
+        <td>{{ bank.micr_code }}</td>
+        <td>{{ bank.account_holder_name }}</td>
+        <td>{{ bank.branch_address }}</td>
+    </tr>
+    {% endfor %}
+</table>

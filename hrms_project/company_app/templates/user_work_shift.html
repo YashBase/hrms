@@ -1,0 +1,32 @@
+{% extends "base/base1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Work Shift</title>
+</head>
+<body>
+    <h1>Work Shift Information</h1>
+    {% if work_shifts %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Shift Type</th>
+                    <th>Total Work Time (hours)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for shift in work_shifts %}
+                    <tr>
+                        <td>{{ shift.shift_type }}</td>
+                        <td>{{ shift.total_work_time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No work shift information available.</p>
+    {% endif %}
+</body>
+</html>

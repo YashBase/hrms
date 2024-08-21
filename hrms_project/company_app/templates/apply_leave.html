@@ -1,0 +1,11 @@
+<!-- company_app/templates/apply_leave.html -->
+{% extends "base/base1.html" %}
+
+{% block content %}
+  <h2>Apply for Leave</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,6 @@
+<h2>Request Edit Bank Details</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Request Edit</button>
+</form>

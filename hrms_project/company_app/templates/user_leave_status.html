@@ -1,0 +1,24 @@
+<!-- company_app/templates/user_leave_status.html -->
+{% extends "base/base1.html" %}
+
+{% block content %}
+  <h2>Your Leave Status</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for leave in leaves %}
+        <tr>
+          <td>{{ leave.date }}</td>
+          <td>{{ leave.reason }}</td>
+          <td>{{ leave.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

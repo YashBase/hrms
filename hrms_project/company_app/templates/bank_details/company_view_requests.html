@@ -1,0 +1,15 @@
+<h2>Pending Edit Requests</h2>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Requested At</th>
+        <th>Action</th>
+    </tr>
+    {% for request in edit_requests %}
+    <tr>
+        <td>{{ request.user.name }}</td>
+        <td>{{ request.requested_at }}</td>
+        <td><a href="{% url 'approve_edit_request' request.id %}">Approve</a></td>
+    </tr>
+    {% endfor %}
+</table>

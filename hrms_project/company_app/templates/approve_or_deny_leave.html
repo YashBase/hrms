@@ -1,0 +1,14 @@
+<!-- company_app/templates/approve_or_deny_leave.html -->
+
+{% extends "base.html" %}
+{% block content %}
+  <h2>Approve/Deny Leave</h2>
+  <p>User: {{ leave.user.name }}</p>
+  <p>Date: {{ leave.date }}</p>
+  <p>Reason: {{ leave.reason }}</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

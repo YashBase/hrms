@@ -1,0 +1,30 @@
+<!-- company_app/templates/manage_leaves.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manage Leaves</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for leave in leaves %}
+        <tr>
+          <td>{{ leave.user.name }}</td>
+          <td>{{ leave.date }}</td>
+          <td>{{ leave.reason }}</td>
+          <td>{{ leave.status }}</td>
+          <td>
+            <a href="{% url 'approve_or_deny_leave' leave.id %}">Approve/Deny</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

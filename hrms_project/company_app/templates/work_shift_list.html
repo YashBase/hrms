@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Work Shift List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Shift Type</th>
+            <th>Total Work Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shift in shifts %}
+        <tr>
+            <td>{{ shift.user.username }}</td>
+            <td>{{ shift.shift_type }}</td>
+            <td>{{ shift.total_work_time }}</td>
+            <td>
+                <a href="{% url 'edit_work_shift' shift.id %}"class="btn btn-warning">Edit</a> |
+                <a href="{% url 'delete_work_shift' shift.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'add_work_shift' %}" class="btn btn-primary">Add Work Shift</a>
+{% endblock %}

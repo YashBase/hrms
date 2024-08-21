@@ -1,0 +1,10 @@
+<!-- company_app/templates/create_project.html -->
+{% extends "base.html" %}
+{% block content %}
+  <h2>Create Project</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Project</button>
+  </form>
+{% endblock %}

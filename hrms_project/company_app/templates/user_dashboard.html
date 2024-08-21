@@ -1,0 +1,37 @@
+
+{% extends "base/base1.html" %}
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Welcome, {{ user.username }}</h2>
+    <h3>Your Salary Information</h3>
+    {% if user.salaryinfo_set.exists %}
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Job Type</th>
+                    <th>Salary Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for salary in user.salaryinfo_set.all %}
+                <tr>
+                    <td>{{ salary.job_type.name }}</td>
+                    <td>{{ salary.salary_amount }}</td>
+                </tr>
+                {% endfor %}
+                <!--
+                <a href="{% url 'user_dashboard' %}">Salary</a>
+                <a href="{% url 'user_work_shift' %}">Work Shift</a>
+                <a href="{% url 'apply_leave' %}">Apply Leave</a>
+                <a href="{% url 'user_leave_status' %}">Leave Status</a>
+                <a href="{% url 'user_attendance' %}">Attendance</a>
+                <a href="{% url 'user_projects' %}">projects</a>
+-->
+            </tbody>
+        </table>
+    {% else %}
+        <p>No salary information available.</p>
+        
+    {% endif %}
+{% endblock %}

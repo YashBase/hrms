@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Salary Information{% endblock %}
+
+{% block content %}
+    <h2>Salary Information</h2>
+    <a href="{% url 'salary_create' %}" class="btn btn-primary mb-3">Add Salary Info</a>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Job Type</th>
+                <th>Salary Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for salary in salaries %}
+            <tr>
+                <td>{{ salary.user.username }}</td>
+                <td>{{ salary.job_type.name }}</td>
+                <td>{{ salary.salary_amount }}</td>
+                <td>
+                    <a href="{% url 'salary_update' salary.pk %}" class="btn btn-warning">Edit</a>
+                    <form action="{% url 'salary_delete' salary.pk %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

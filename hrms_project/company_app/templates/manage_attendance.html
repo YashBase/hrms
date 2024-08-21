@@ -1,0 +1,28 @@
+<!-- company_app/templates/manage_attendance.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manage Attendance</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Check-In Time</th>
+        <th>Check-Out Time</th>
+        <th>Total Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for attendance in attendances %}
+        <tr>
+          <td>{{ attendance.user.name }}</td>
+          <td>{{ attendance.date }}</td>
+          <td>{{ attendance.check_in_time }}</td>
+          <td>{{ attendance.check_out_time }}</td>
+          <td>{{ attendance.total_hours }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
